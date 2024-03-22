@@ -1,5 +1,4 @@
 import pandas as pd
-import sys
 import math
 
 #Calculates the great circle distance, this case the Earth
@@ -19,10 +18,10 @@ def haversine(lat1, long1, lat2, long2):
 
 
 #Reads file and places in a dictonary
-df = pd.read_csv('your file path')
+df = pd.read_csv('WhataburgerData.csv')
 
 df.head()
-locations = pd.read_csv('your file path')
+locations = pd.read_csv('Queries.csv')
 locations.head()
 lat1 = df.at[0,'Latitude']
 long1 = df.at[0,'Longitude']
