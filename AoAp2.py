@@ -44,15 +44,16 @@ def rand_Select(A,L,R,i):
 df_whataburger = pd.read_csv('WhataburgerData.csv')
 df_queries = pd.read_csv('Queries.csv')
 
+distance = []
 for i, row in df_queries.iterrows():
     lat = row['Latitude']
     long = row['Longitude']
     desired_store = row['Number of stores desired']
 
-    distance = []
     for _, store_rows in df_whataburger.iterrows():
-        distance = haversine(lat, long, store_rows['Latitude'], store_rows['Longitude'])
-        distance.append(distance)
+        dist = haversine(lat, long, store_rows['Latitude'], store_rows['Longitude'])
+        distance.append(dist)
+    
 
 
 #TO DO NEED TO FIND CLOSEST STORES
