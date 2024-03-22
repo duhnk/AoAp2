@@ -51,7 +51,7 @@ def rand_Select(A,L,R,i):
     elif i < k:
         return rand_Select(A,L,z-1,i)
     else:
-        return rand_Select(A,z+1,r,i-(k+1))
+        return rand_Select(A,z+1,R,i-(k+1))
 
 stores = locations.at[0,'Number of stores desired']
 stores
