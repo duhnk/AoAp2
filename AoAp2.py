@@ -16,20 +16,7 @@ def haversine(lat1, long1, lat2, long2):
 
     return radiusOfEarthInMiles*c
 
-
-#Reads file and places in a dictonary
-df = pd.read_csv('WhataburgerData.csv')
-
-df.head()
-locations = pd.read_csv('Queries.csv')
-locations.head()
-lat1 = df.at[0,'Latitude']
-long1 = df.at[0,'Longitude']
-lat2 = locations.at[0,'Latitude']
-long2 = locations.at[0,'Longitude']
-distance = haversine(lat1,long1,lat2,long2)
-distance
-
+#Partitions and swaps elements
 def rand_Partition(A,L,R):
     x = A[L]
     i = L
@@ -40,8 +27,9 @@ def rand_Partition(A,L,R):
     A[i],A[L] = A[L],A[i]
     return i
 
+#Picks random pivot
 def rand_Select(A,L,R,i):
-    if L == R:
+    if L == R: 
         return A[L]
     z = rand_Partition(A,L,R)
     k = z - L
@@ -52,5 +40,20 @@ def rand_Select(A,L,R,i):
     else:
         return rand_Select(A,z+1,R,i-(k+1))
 
-stores = locations.at[0,'Number of stores desired']
-stores
+#Reads WhataburgerData and Queries and places in a dictonary
+df_whataburger = pd.read_csv('WhataburgerData.csv')
+df_queries = pd.read_csv('Queries.csv')
+
+for i, row in df_queries.iterrows():
+    lat = row['Latitude']
+    long = row['Longitude']
+    desired_store = row['Number of stores desired']
+
+    distance = []
+    for _, store_rows in df_whataburger.iterrows():
+        distance = haversine(lat, long, store_rows['Latitude'], store_rows['Longitude'])
+        distance.append(distance)
+
+
+#TO DO NEED TO FIND CLOSEST STORES
+
