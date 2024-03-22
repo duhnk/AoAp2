@@ -19,10 +19,10 @@ def haversine(lat1, long1, lat2, long2):
 
 
 #Reads file and places in a dictonary
-df = pd.read_csv('/Users/afxwk/Desktop/UTSA Computer Science Folder/Spring 2024/CS-3343-004 AoA/Project2/WhataburgerData.csv')
+df = pd.read_csv('your file path')
 
 df.head()
-locations = pd.read_csv('/Users/afxwk/Desktop/UTSA Computer Science Folder/Spring 2024/CS-3343-004 AoA/Project2/Queries.csv')
+locations = pd.read_csv('your file path')
 locations.head()
 lat1 = df.at[0,'Latitude']
 long1 = df.at[0,'Longitude']
