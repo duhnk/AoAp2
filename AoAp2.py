@@ -37,7 +37,7 @@ def rand_Partition(A,L,R):
     for j in range(L+1, R+1):
         if A[j] <= x:
             i += 1
-            A[i], A[j] = A[j], A[i]
+            A[i], A[j] = A[j], A[i] #swap 
     A[i],A[L] = A[L],A[i]
     return i
 
